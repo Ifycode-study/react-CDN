@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <h1>Hello!</h1>
+
+    <div id="banner"></div>
+
+    <script type="text/babel">
+        const Banner = () => {
+            const title = 'Banner component';
+            const subtitle = 'React with CDN website';
+            const address = 'https://github.com/Ifycode';
+
+            const handleClick = (e) => {
+                console.log('You clicked me!');
+                console.log('The site title is: ', title);
+                console.log(e);
+            };
+
+            return (
+                //this is a comment
+                <div className="banner-class">
+                    <p>{title.toUpperCase()}</p>
+                    <p>{subtitle}</p>
+                    <p>Today's date: {new Date().toDateString()}</p>
+                    <p>Random number: {Math.round(Math.random() * 100)}</p>
+                    <a href={address}>See Ifycode's github profile</a>
+                    <button onClick={handleClick}>handleclick function - Click me!</button>
+                    <button onClick={() => { console.log('Hello!'); }}>Inline function - Click me!</button>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<Banner />, document.getElementById('banner'));
+    </script>
+</body>
+</html>
